@@ -15,7 +15,7 @@ USB-C for power and programming, Li-Ion power, microSD storage, and a proper ext
 
 ---
 
-# v0.0.2 - Finishing the audio path, microphone, and UART
+# v0.0.2 - Finishing the audio path, microphone, and UART (8.7.2026)
 
 [*Time spent: >7h (the lapse crashed on me)*](https://lapse.hackclub.com/timelapse/vYrmMcLXm_-O)
 
@@ -38,7 +38,6 @@ I want the project to stay understandable and possible to build even by you:)
 
 ---
 
-
 # v0.0.3 - Making the hardware plan, finishing the microphone, and adding ENC and MOT
 
 [_Time spent: 5h 21m_](https://lapse.hackclub.com/timelapse/LOAxFAgoULYP)
@@ -49,10 +48,52 @@ After making the list, I had everything in one place and could start adding more
 
 Next were the vibration motors. It was obvious that they would be controlled with MOSFETs, but while reminding myself how to implement them properly instead of doing it quickly, I found many different approaches. Luckily, I managed to find what seems to be a reliable article and successfully implemented two of them. Maybe this could give some interesting “stereo” feeling in a future community use :)
 
-I also decided to audit yesterday’s schematic with a clear head, which I really recommend, because otherwise the whole thing slowly turns into a Jenga tower. I found a few smaller and bigger issues. 
+I also decided to audit yesterday’s schematic with a clear head, which I really recommend, because otherwise the whole thing slowly turns into a Jenga tower. I found a few smaller and bigger issues.
 
 One example was the PCM5102A datasheet. It turned out that I had been reading the 2012 version, while a newer one from 2015 exists, so I had to rebuild some part of the circuit.
 
 The bigger issue was the microphone path. It was supposed to be a simple thing added quickly, but it turned out like it usually does. After running a simulation in Falstad, many things did not match, so almost the entire microphone preamplifier had to be rebuilt.
 
 ![0.0.3 - Schematic](hardware/reversions/v0.0.3/schematic/MP3-Gotchi_kicad_v2-v0.0.3.svg)
+
+
+---
+
+# v0.0.4 - Dodanie OLED i reszty akcesoriów i wstępne skończenie schematu
+
+[_Time spent: 3h 23m_](https://lapse.hackclub.com/timelapse/LOAxFAgoULYP)
+
+Już prawie koniec schematu! Dzisiaj już odchaczyłem wszystko z components list i zostały tylko poprawki które wręcz zawsze są przy projektowaniu PCB co zostawiam już na następną część, stąd tylko tyle godzin.
+
+Głównie robiłem dzisiaj peryferia takie jak IMU na klasycznym MPU6050 który wymagał od siebie tylko 2 kondensatorów co było mi miłym zaskoczeniem.
+
+Następnie zabrałem się za [SSD1331 kupionego wcześniej](https://sklep.msalamon.pl/produkt/wyswietlacz-oled-095-spi-kolorowy/) do v1 wersji. Niestety po długim reasearchu, ciężko mi było odszyfrować jego schemat by przenieść na płytkę, ale nie było to potrzebne finalnie. Lepszym wyborem będzie użycie jej jako oddzielnej płytki, połącznie przez PH złącze i przymocnowanie do obudowy, co nałoży znacznie mniejsze ograniczenia na finalną obudowę względem stale przylutowanego ekranu na PCB.
+
+Jako, że mam w jacku tip shunt, to postanowiłem go wykorzystać, dodając możliwość podłączenia wewnętrz obudowy głośniczka 8ohm, by można było w razie potrzeb słuchać muzyki nie tylko samemu, ale też z innymi przykładowo grając w karty w parku:)
+Planowałem by to była szybka i "aby było" opcja, ale jednak jak już założyłem że będzie to porządnie zrobiony projekt, to będzie porządnie. Dodałem więc PAM8302, który finanlie dał mi sporo endorifn jak go znalazłem, bo akurat mono, wspiera 3.3v, nie wymaga teoretycznie nic zewnętrznego i najtańszy z wzmacniaczy audio klasy D. Trafił więc do schematu, jedynie co musiałem zrobić to dać 2 rezystory na wejściu, by dostosować wzmocnienie do wyższego napięcia które przecież idzie z pre ampa.
+
+Na koniec zostały dwa przyciski które będą pełniły "jakąś" funkcje, bo jeden enkoder z jednym przyciskiem średnio zdadzą egzamin na dłuższą mete.
+
+![0.0.4 - Schematic](hardware/reversions/v0.0.4/schematic/MP3-Gotchi_kicad_v2-v0.0.4.svg)
+
+
+# v0.0.4 - Adding the OLED and the remaining peripherals, and finishing the first full schematic
+
+[*Time spent: 3h 23m*](https://lapse.hackclub.com/timelapse/LOAxFAgoULYP)
+
+The schematic is almost finished!
+
+Today I finally checked off everything from the components list. Only the usual fixes that appear during PCB design remain, but I am leaving those for the next part.
+
+Most of today was spent adding peripherals, including the classic MPU6050 IMU. It only needed two external capacitors, which was a nice surprise.
+
+Next, I moved on to the [SSD1331 display I had previously bought](https://sklep.msalamon.pl/produkt/wyswietlacz-oled-095-spi-kolorowy/) for the v1 version. Even after a lot of research, I could not understand its full circuit well enough to move it directly onto the main board. In the end, that was not necessary. Using it as a separate board connected through a PH connector and mounted directly to the enclosure will be a better option. It also gives me more freedom when designing the final enclosure.
+
+Since the jack has a tip shunt, I decided to use it to support a small 8 ohm speaker inside the enclosure. This way, the music will not always have to stay inside the headphones and could be shared with other people, for example while sitting in a park and playing cards:)
+At first, this was supposed to be a quick extra feature. But since the whole project should be properly made, this part should be done properly too.
+I added the PAM8302, which honestly gave me a small dopamine rush when I found it. It is mono, supports 3.3 V, needs almost no external components and was the cheapest Class D audio amplifier I could find.
+It went straight into the schematic. I only had to add a pair of input resistors to adjust its gain for the higher signal level coming from the previous amplifier stage.
+
+The final additions were two buttons that will eventually have “some” function, because one rotary encoder with a single button probably will not be enough in the long run, or maybe its can be special features?
+
+![0.0.4 - Schematic](hardware/reversions/v0.0.4/schematic/MP3-Gotchi_kicad_v2-v0.0.4.svg)
