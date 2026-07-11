@@ -79,7 +79,7 @@ Na koniec zostały dwa przyciski które będą pełniły "jakąś" funkcje, bo j
 
 # v0.0.4 - Adding the OLED and the remaining peripherals, and finishing the first full schematic
 
-[*Time spent: 3h 23m*](https://lapse.hackclub.com/timelapse/LOAxFAgoULYP)
+[*Time spent: 3h 23m*](https://lapse.hackclub.com/timelapse/U2HmR3q3GXm7)
 
 The schematic is almost finished!
 
