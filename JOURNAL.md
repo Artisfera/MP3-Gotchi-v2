@@ -1,6 +1,11 @@
-# v0.0.1 - Starting over (7.7.2026)
+---
+title: "MP3-Gotchi-v2"
+author: "Patryk Ankudowicz"
+description: "Hardware development journal for the MP3-Gotchi-v2 music player."
+created_at: "2026-07-07"
+---
 
-[_Time spent: 6h 28m_](https://lapse.hackclub.com/timelapse/TcRorU8f71nD)
+# July 7 - v0.0.1 - Starting over
 
 Today I decided to restart the hardware side of MP3 Gotchi instead of continuing with the first prototype approach.
 
@@ -13,11 +18,9 @@ USB-C for power and programming, Li-Ion power, microSD storage, and a proper ext
 
 ![0.0.1 - Schematic](hardware/reversions/v0.0.1/schematic/MP3-Gotchi_kicad_v2-v0.0.1.svg)
 
----
+**Total time spent: [6h 28m](https://lapse.hackclub.com/timelapse/TcRorU8f71nD)**
 
-# v0.0.2 - Finishing the audio path, microphone, and UART (8.7.2026)
-
-[*Time spent: >7h (the lapse crashed on me)*](https://lapse.hackclub.com/timelapse/vYrmMcLXm_-O)
+# July 8 - v0.0.2 - Finishing the audio path, microphone, and UART
 
 I never thought I would spend this much time on just a JACK port...
 
@@ -36,11 +39,9 @@ I want the project to stay understandable and possible to build even by you:)
 
 ![0.0.2 - Schematic](hardware/reversions/v0.0.2/schematic/MP3-Gotchi_kicad_v2-v0.0.2.svg)
 
----
+**Total time spent: [7h 07m](https://lapse.hackclub.com/timelapse/vYrmMcLXm_-O)**
 
 # v0.0.3 - Making the hardware plan, finishing the microphone, and adding ENC and MOT
-
-[_Time spent: 5h 21m_](https://lapse.hackclub.com/timelapse/LOAxFAgoULYP)
 
 Maybe I should have started with the plan, but better now than later. I finally got to the most important part and started planning everything properly. For now, I wrote down a list of the hardware components that will later be arranged into the final block diagram. You can find it in `/docs/diagram/components-list_MP3-Gotchi-v2.md`.
 
@@ -56,30 +57,9 @@ The bigger issue was the microphone path. It was supposed to be a simple thing a
 
 ![0.0.3 - Schematic](hardware/reversions/v0.0.3/schematic/MP3-Gotchi_kicad_v2-v0.0.3.svg)
 
-
----
-
-# v0.0.4 - Dodanie OLED i reszty akcesoriów i wstępne skończenie schematu
-
-[_Time spent: 3h 23m_](https://lapse.hackclub.com/timelapse/LOAxFAgoULYP)
-
-Już prawie koniec schematu! Dzisiaj już odchaczyłem wszystko z components list i zostały tylko poprawki które wręcz zawsze są przy projektowaniu PCB co zostawiam już na następną część, stąd tylko tyle godzin.
-
-Głównie robiłem dzisiaj peryferia takie jak IMU na klasycznym MPU6050 który wymagał od siebie tylko 2 kondensatorów co było mi miłym zaskoczeniem.
-
-Następnie zabrałem się za [SSD1331 kupionego wcześniej](https://sklep.msalamon.pl/produkt/wyswietlacz-oled-095-spi-kolorowy/) do v1 wersji. Niestety po długim reasearchu, ciężko mi było odszyfrować jego schemat by przenieść na płytkę, ale nie było to potrzebne finalnie. Lepszym wyborem będzie użycie jej jako oddzielnej płytki, połącznie przez PH złącze i przymocnowanie do obudowy, co nałoży znacznie mniejsze ograniczenia na finalną obudowę względem stale przylutowanego ekranu na PCB.
-
-Jako, że mam w jacku tip shunt, to postanowiłem go wykorzystać, dodając możliwość podłączenia wewnętrz obudowy głośniczka 8ohm, by można było w razie potrzeb słuchać muzyki nie tylko samemu, ale też z innymi przykładowo grając w karty w parku:)
-Planowałem by to była szybka i "aby było" opcja, ale jednak jak już założyłem że będzie to porządnie zrobiony projekt, to będzie porządnie. Dodałem więc PAM8302, który finanlie dał mi sporo endorifn jak go znalazłem, bo akurat mono, wspiera 3.3v, nie wymaga teoretycznie nic zewnętrznego i najtańszy z wzmacniaczy audio klasy D. Trafił więc do schematu, jedynie co musiałem zrobić to dać 2 rezystory na wejściu, by dostosować wzmocnienie do wyższego napięcia które przecież idzie z pre ampa.
-
-Na koniec zostały dwa przyciski które będą pełniły "jakąś" funkcje, bo jeden enkoder z jednym przyciskiem średnio zdadzą egzamin na dłuższą mete.
-
-![0.0.4 - Schematic](hardware/reversions/v0.0.4/schematic/MP3-Gotchi_kicad_v2-v0.0.4.svg)
-
+**Total time spent: [5h 21m](https://lapse.hackclub.com/timelapse/LOAxFAgoULYP)**
 
 # v0.0.4 - Adding the OLED and the remaining peripherals, and finishing the first full schematic
-
-[*Time spent: 3h 23m*](https://lapse.hackclub.com/timelapse/U2HmR3q3GXm7)
 
 The schematic is almost finished!
 
@@ -97,3 +77,71 @@ It went straight into the schematic. I only had to add a pair of input resistors
 The final additions were two buttons that will eventually have “some” function, because one rotary encoder with a single button probably will not be enough in the long run, or maybe its can be special features?
 
 ![0.0.4 - Schematic](hardware/reversions/v0.0.4/schematic/MP3-Gotchi_kicad_v2-v0.0.4.svg)
+
+**Total time spent: [3h 23m](https://lapse.hackclub.com/timelapse/U2HmR3q3GXm7)**
+
+---
+
+### A quick update before the next revisions
+
+Well, summer ended, school started, and somehow three months went by without a single project update.
+
+After finishing v0.1.0, I decided to make things a little harder for myself and try manufacturing the PCB at home. So, even though I wasn't posting updates, I spent most of that time working on an Ender3CNC conversion.
+
+It's almost finished now, but I eventually realized that it's much better suited for engraving wood than milling tiny PCB traces with 0.1 mm precision. Looking back, I also spent way too much time convincing myself that I had to finish the CNC before I could continue with MP3-Gotchi.
+
+And that's how a three-month break happened :)
+
+But this was supposed to be a fun gift, not another unfinished project sitting in a drawer. With school competitions coming up, I finally decided to stop delaying things and get back to finishing it properly.
+
+For now, I'm switching to professional PCB manufacturing. I'll eventually rebuild the CNC into a smaller, more precise machine with lead screws, so I can use it for future projects whenever I need a PCB quickly.
+
+The next few revisions were actually made during this break and have been sitting on my drive waiting to be documented and committed. That's why I'm adding this note here rather than at the end of the journal.
+
+Now, back to MP3-Gotchi!
+
+---
+
+# v0.0.5 - Preparing the PCB and moving to Linux
+
+With the schematic mostly finished, I could finally move on to the actual PCB design!
+
+I started by going through the component footprints, adjusting the design rules and preparing everything for placing the components on the board. I also spent quite a bit of time researching parts on TME and putting together the BOM, because there's not much point in designing a PCB around components I can't actually buy :)
+
+Around the same time, I decided to move from Windows to Linux Mint. I thought it would be a fairly straightforward switch, but of course, a few unexpected software problems showed up along the way.
+
+So instead of spending the entire session on the PCB, I ended up dealing with the new environment too. Still, I managed to make progress, and the project was finally moving beyond just drawing a schematic.
+
+**Total time spent: [11h 57m](https://lapse.hackclub.com/timelapse/H-KEtL5mgBXW)**
+
+# v0.0.6 - More PCB work, software issues, and ordering components
+
+I continued working on the PCB, although things didn't go quite as smoothly as I had hoped.
+
+Switching between Windows and Linux Mint turned out to be more troublesome than expected. I ran into software errors that slowed down the whole process, so a good part of this session was spent troubleshooting instead of actually designing the board.
+
+Not exactly the kind of progress I wanted to make, but I guess that's part of working on a project like this :)
+
+The good news is that I finally ordered all the components from my BOM! At least now I won't have to worry about finding and ordering everything when the PCB is ready.
+
+With the components on their way, I could focus on finishing the board itself.
+
+**Total time spent: [2h 45m](https://lapse.hackclub.com/timelapse/Vv391Sbhwzbg)**
+
+# v0.1.0 - Working on the first PCB layout
+
+Finally, some real PCB work!
+
+With the schematic mostly finished and all the components ordered, I could focus on turning everything into an actual board.
+
+Most of this revision was spent placing components, routing traces and checking the design rules. This is where the schematic started turning into something that could eventually be manufactured.
+
+I also began preparing the design for Gerber export, although the PCB still needed some refinement before I could call it ready for production.
+
+It's definitely more complicated than just connecting everything in the schematic. Now I also have to think about where each component goes, how the traces are routed and whether the whole thing can actually be manufactured.
+
+Still, seeing the project slowly take the shape of a real PCB after all the work on the schematic feels like a pretty big step forward.
+
+Not quite ready to manufacture yet, but getting closer!
+
+**Total time spent: [6h 02m](https://lapse.hackclub.com/timelapse/XBWMIvsa8Shx)**
