@@ -1,7 +1,7 @@
 ---
 title: "MP3-Gotchi-v2"
 author: "Patryk Ankudowicz"
-description: "Hardware development journal for the MP3-Gotchi-v2 music player."
+description: "A pocket-sized offline MP3 player with a Tamagotchi-style monkey companion, built from scratch around a custom ESP32-S3 PCB as a one-of-a-kind anniversary gift."
 created_at: "2026-07-07"
 ---
 
@@ -16,7 +16,7 @@ So I started planning v2 as a proper single-board device. The main goals are to 
 Most of today was spent researching and deciding the core hardware direction:
 USB-C for power and programming, Li-Ion power, microSD storage, and a proper external audio path instead of relying on random modules.
 
-![0.0.1 - Schematic](hardware/reversions/v0.0.1/schematic/MP3-Gotchi_kicad_v2-v0.0.1.svg)
+![0.0.1 - Schematic](hardware/reversions/v0.0.1/schematic/MP3-Gotchi-v2_kicad-v0.0.1.png)
 
 **Total time spent: [6h 28m](https://lapse.hackclub.com/timelapse/TcRorU8f71nD)**
 
@@ -37,7 +37,7 @@ At first I wanted to move the whole programming circuit onto the MP3-Gotchi PCB,
 
 I want the project to stay understandable and possible to build even by you:)
 
-![0.0.2 - Schematic](hardware/reversions/v0.0.2/schematic/MP3-Gotchi_kicad_v2-v0.0.2.svg)
+![0.0.2 - Schematic](hardware/reversions/v0.0.2/schematic/MP3-Gotchi-v2_kicad-0.0.2.png)
 
 **Total time spent: [7h 07m](https://lapse.hackclub.com/timelapse/vYrmMcLXm_-O)**
 
@@ -55,7 +55,7 @@ One example was the PCM5102A datasheet. It turned out that I had been reading th
 
 The bigger issue was the microphone path. It was supposed to be a simple thing added quickly, but it turned out like it usually does. After running a simulation in Falstad, many things did not match, so almost the entire microphone preamplifier had to be rebuilt.
 
-![0.0.3 - Schematic](hardware/reversions/v0.0.3/schematic/MP3-Gotchi_kicad_v2-v0.0.3.svg)
+![0.0.3 - Schematic](hardware/reversions/v0.0.3/schematic/MP3-Gotchi-v2_kicad-0.0.3.png)
 
 **Total time spent: [5h 21m](https://lapse.hackclub.com/timelapse/LOAxFAgoULYP)**
 
@@ -76,7 +76,7 @@ It went straight into the schematic. I only had to add a pair of input resistors
 
 The final additions were two buttons that will eventually have “some” function, because one rotary encoder with a single button probably will not be enough in the long run, or maybe its can be special features?
 
-![0.0.4 - Schematic](hardware/reversions/v0.0.4/schematic/MP3-Gotchi_kicad_v2-v0.0.4.svg)
+![0.0.4 - Schematic](hardware/reversions/v0.0.4/MP3-Gotchi-v2_kicad_0.0.4.png)
 
 **Total time spent: [3h 23m](https://lapse.hackclub.com/timelapse/U2HmR3q3GXm7)**
 
@@ -112,6 +112,8 @@ Around the same time, I decided to move from Windows to Linux Mint. I thought it
 
 So instead of spending the entire session on the PCB, I ended up dealing with the new environment too. Still, I managed to make progress, and the project was finally moving beyond just drawing a schematic.
 
+![0.0.5 - Screenshot](hardware/reversions/v0.0.5/v0.0.5-screenshot.png)
+
 **Total time spent: [11h 57m](https://lapse.hackclub.com/timelapse/H-KEtL5mgBXW)**
 
 # v0.0.6 - More PCB work, software issues, and ordering components
@@ -125,6 +127,8 @@ Not exactly the kind of progress I wanted to make, but I guess that's part of wo
 The good news is that I finally ordered all the components from my BOM! At least now I won't have to worry about finding and ordering everything when the PCB is ready.
 
 With the components on their way, I could focus on finishing the board itself.
+
+![0.0.6 - Screenshot](hardware/reversions/v0.0.6/v0.0.6-screenshot.png)
 
 **Total time spent: [2h 45m](https://lapse.hackclub.com/timelapse/Vv391Sbhwzbg)**
 
@@ -143,5 +147,7 @@ It's definitely more complicated than just connecting everything in the schemati
 Still, seeing the project slowly take the shape of a real PCB after all the work on the schematic feels like a pretty big step forward.
 
 Not quite ready to manufacture yet, but getting closer!
+
+![0.1.0 - Screenshot](hardware/reversions/v0.1.0/v0.1.0-screenshot.png)
 
 **Total time spent: [6h 02m](https://lapse.hackclub.com/timelapse/XBWMIvsa8Shx)**
